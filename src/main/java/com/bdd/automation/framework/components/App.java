@@ -1,4 +1,4 @@
-package com.website.bdd.automation.pdp.components;
+package com.bdd.automation.framework.components;
 
 /**
  * Hello world!
