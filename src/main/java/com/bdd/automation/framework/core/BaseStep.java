@@ -99,4 +99,29 @@ public class BaseStep {
 			}
 			
 		}
+		public static void tearDown() {
+			Process p;
+			if(driver!= null && !driver.toString().contains(null)) {
+				driver.close();
+				driver.quit();
+				driver = null;
+				
+			}
+			else if(driver.toString().contains(null)) {
+				driver.quit();
+				driver = null;
+			}
+				
+				try {
+				String driverVersion  = FrameworkProperties.getProperty("webdriver.path");
+				p = Runtime.getRuntime().exec("taskkill /F /IM " + driverVersion);
+				p.destroyForcibly();
+				}
+				catch(IOException e) {
+					e.printStackTrace();
+				}
+				
+				
+			
+		}
 }

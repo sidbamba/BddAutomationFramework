@@ -8,6 +8,7 @@ import java.io.IOException;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
+import com.bdd.automation.framework.core.BaseStep;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -17,5 +18,8 @@ import cucumber.api.junit.Cucumber;
 glue = {""}, tags = {""}, monochrome= true)
 	
 public class AppTest {
-	
+	@AfterClass
+	public static void tearDown() {
+		BaseStep.tearDown();
+	}
 }
