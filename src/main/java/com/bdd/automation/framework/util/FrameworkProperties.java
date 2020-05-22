@@ -12,17 +12,20 @@ public class FrameworkProperties {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(FrameworkProperties.class);
 	
-	private static final String DEFAULT_PROPS = "/framework.properties,/elements.properties";
+	private static final String DEFAULT_PROPS = "/bdd/framework.properties,/elements.properties";
 	
 	private static final String FILE_SEPARATION = ",";
 	
 	private static Properties prop = new Properties();
 	
+	private FrameworkProperties() {
+		
+	}
 	static{
-		String propertyFiles = System.getProperty(DEFAULT_PROPS);
+		String propertyFiles = DEFAULT_PROPS;
 		String[] files = propertyFiles.split(FILE_SEPARATION);
 		for(String file:files) {
-			loadProperty(file,true);
+			loadProperty(file,false);
 		}
 	}
 	

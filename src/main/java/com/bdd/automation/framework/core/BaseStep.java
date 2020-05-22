@@ -1,6 +1,7 @@
 package com.bdd.automation.framework.core;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import javax.management.RuntimeErrorException;
 
@@ -24,7 +25,15 @@ public class BaseStep {
 				System.out.println("Webdriver is Null. Initializing it");
 				String browser = FrameworkProperties.getProperty("webdriver.name");
 				initializeDriver(browser);
+				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				String website = FrameworkProperties.getProperty("get.url");
+				driver.get(website);
 			}
+			else {
+				String website = FrameworkProperties.getProperty("get.url");
+				driver.get(website);
+			}
+			driver.manage().window().maximize();
 		}
 		
 		enum Browser{
@@ -38,17 +47,18 @@ public class BaseStep {
 				try {
 					if(System.getProperty("os.name").toLowerCase().contains("windows")) {
 						System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + FrameworkProperties.getProperty("webdriver.path"));
+					System.out.println(System.getProperty("webdriver.chrome.driver"));
 					}
 					//for linux
 					else {
 						System.setProperty("webdriver.chrome.driver","/home/sousr/Downloads/chromedriver");
 					}
 					driver = new ChromeDriver();
-					retry++;
+					
 					break;			
 				}catch(Exception e) {
 					System.out.println("chrome didn't start trying again");
-					
+					retry++;
 					if(retry < 2) {
 						initializeDriver(browser);
 					}else {

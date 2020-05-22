@@ -14,12 +14,12 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty", "html:target/html/Report.html" ,"json:target/html/cucumber.json"}, features = {""},
-glue = {""}, tags = {""}, monochrome= true)
+@CucumberOptions(plugin = {"pretty", "html:target/html/Report.html" ,"json:target/html/cucumber.json"}, features = {"src\\test\\resources\\bdd\\cukes\\orders\\HomePage\\HomeTest.feature"},
+glue = {"com.bdd.automation.framework"})
 	
 public class AppTest {
-	@AfterClass
-	public static void tearDown() {
-		BaseStep.tearDown();
-	}
+//	@AfterClass
+//	public static void tearDown() {
+//		BaseStep.tearDown();
+//	}
 }
