@@ -12,7 +12,7 @@ public class FrameworkProperties {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(FrameworkProperties.class);
 	
-	private static final String DEFAULT_PROPS = "/bdd/framework.properties,/elements.properties";
+	private static final String DEFAULT_PROPS = "/framework.properties,/elements.properties";
 	
 	private static final String FILE_SEPARATION = ",";
 	

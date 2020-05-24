@@ -9,12 +9,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.bdd.automation.framework.core.BaseStep;
 import com.bdd.automation.framework.util.Element;
 import com.bdd.automation.framework.util.EncryptHelper;
 import com.bdd.automation.framework.util.FrameworkProperties;
 
-public class LoginPage {
-	public static WebDriver driver = new ChromeDriver();
+public class LoginPage extends BaseStep {
+	
 		public static void login() throws Exception {
 			String userName = FrameworkProperties.getProperty("user.valid.email");
 			String password = FrameworkProperties.getProperty("user.valid.password");

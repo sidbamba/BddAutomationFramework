@@ -5,18 +5,17 @@ import java.util.concurrent.TimeUnit;
 
 import javax.management.RuntimeErrorException;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.bdd.automation.framework.util.FrameworkProperties;
 
 public class BaseStep {
 		public static WebDriver driver;
 		
-		public static Logger LOGGER = LoggerFactory.getLogger(BaseStep.class);
+		public static Logger LOGGER = Logger.getLogger(BaseStep.class);
 		
 		public static int retry = 0;
 		
@@ -54,11 +53,10 @@ public class BaseStep {
 						System.setProperty("webdriver.chrome.driver","/home/sousr/Downloads/chromedriver");
 					}
 					driver = new ChromeDriver();
-					
+					retry++;
 					break;			
 				}catch(Exception e) {
 					System.out.println("chrome didn't start trying again");
-					retry++;
 					if(retry < 2) {
 						initializeDriver(browser);
 					}else {
@@ -111,11 +109,10 @@ public class BaseStep {
 		}
 		public static void tearDown() {
 			Process p;
-			if(driver!= null && !driver.toString().contains(null)) {
+			if(driver != null && !driver.toString().contains("null")) {
 				driver.close();
 				driver.quit();
-				driver = null;
-				
+				driver = null;	
 			}
 			else if(driver.toString().contains(null)) {
 				driver.quit();
