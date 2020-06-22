@@ -21,6 +21,7 @@ public class LoginPage extends BaseStep {
 		//	String password = FrameworkProperties.getProperty("user.valid.password");
 			if(Element.xpath(driver,"login.button").isPresent()) {
 				Element.xpath(driver,"login.button").get().click();
+				Thread.sleep(50000);
 		//		Element.xpath(driver, "name.login").get().click();
 		//		Element.xpath(driver, "name.login").get().sendKeys(Keys.chord(Keys.CONTROL,"a"),Keys.BACK_SPACE,userName);
 		//		Element.xpath(driver, "name.password").get().sendKeys(EncryptHelper.decrypt(password).toString(),Keys.ENTER);
