@@ -1,5 +1,5 @@
 @jaimatadi
 Feature: HomePage Functionality
 
-Scenario: login to flipkart
-		Given user login into flipkart
+Scenario: login to paytm
+		Given user login into Paytm

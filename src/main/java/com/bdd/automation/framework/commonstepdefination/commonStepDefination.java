@@ -11,9 +11,13 @@ public class commonStepDefination extends BaseStep{
 		initialize();
 	}
 	
-	@Given("^user login into flipkart$")
-	public void user_login_into_flipkart() throws Exception  {
-	    LoginPage.login();
+	@Given("^user login into Paytm$")
+	public void user_login_into_flipkart()  {
+	    try {
+			LoginPage.login();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

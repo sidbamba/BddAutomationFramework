@@ -17,13 +17,13 @@ import com.bdd.automation.framework.util.FrameworkProperties;
 public class LoginPage extends BaseStep {
 	
 		public static void login() throws Exception {
-			String userName = FrameworkProperties.getProperty("user.valid.email");
-			String password = FrameworkProperties.getProperty("user.valid.password");
+		//	String userName = FrameworkProperties.getProperty("user.valid.email");
+		//	String password = FrameworkProperties.getProperty("user.valid.password");
 			if(Element.xpath(driver,"login.button").isPresent()) {
 				Element.xpath(driver,"login.button").get().click();
-				Element.xpath(driver, "name.login").get().click();
-				Element.xpath(driver, "name.login").get().sendKeys(Keys.chord(Keys.CONTROL,"a"),Keys.BACK_SPACE,userName);
-				Element.xpath(driver, "name.password").get().sendKeys(EncryptHelper.decrypt(password).toString(),Keys.ENTER);
+		//		Element.xpath(driver, "name.login").get().click();
+		//		Element.xpath(driver, "name.login").get().sendKeys(Keys.chord(Keys.CONTROL,"a"),Keys.BACK_SPACE,userName);
+		//		Element.xpath(driver, "name.password").get().sendKeys(EncryptHelper.decrypt(password).toString(),Keys.ENTER);
 			}
 		}
 }
